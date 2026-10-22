@@ -1,0 +1,363 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Date Night ♡</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .date-page {
+      width: 100%;
+      max-width: 750px;
+      margin: 30px auto;
+      padding: 35px 24px;
+      background: #fffdfb;
+      border-radius: 28px;
+      box-shadow: 0 20px 60px #d99ab533;
+      text-align: center;
+    }
+
+    .date-page h1 {
+      font-size: clamp(32px, 6vw, 48px);
+    }
+
+    .date-card {
+      padding: 22px;
+      margin: 18px 0;
+      background: #fff1f6;
+      border: 1px solid #f2c6d5;
+      border-radius: 20px;
+      text-align: left;
+    }
+
+    .date-card h2 {
+      color: #c64f78;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .movie-options {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .movie {
+      padding: 16px 10px;
+      background: white;
+      border: 1px solid #f2c6d5;
+      border-radius: 15px;
+      color: #8d3555;
+      cursor: pointer;
+    }
+
+    .movie.selected {
+      background: #c64f78;
+      color: white;
+    }
+
+    .game-link {
+      display: inline-block;
+      padding: 14px 22px;
+      background: #c64f78;
+      border-radius: 30px;
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 22px;
+      color: #c64f78;
+    }
+
+    @media (max-width: 480px) {
+      .movie-options {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    
+    .movie-list {
+    margin-top: 22px;
+    padding: 20px;
+    background: #fff9fb;
+    border: 1px dashed #e9a6bc;
+    border-radius: 18px;
+    animation: reveal 0.35s ease;
+    }
+
+    .movie-list h3 {
+    color: #c64f78;
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    }
+
+    .movie-list p {
+    color: #956f7d;
+    line-height: 1.6;
+    }
+
+    #movieChoices {
+    display: grid;
+    gap: 10px;
+    margin-top: 15px;
+    }
+
+    .movie-choice {
+    width: 100%;
+    padding: 14px;
+    text-align: left;
+    background: white;
+    color: #65354a;
+    border: 1px solid #f2c6d5;
+    border-radius: 14px;
+    cursor: pointer;
+    }
+
+    .movie-choice:hover,
+    .movie-choice.selected {
+    background: #fce0ea;
+    border-color: #c64f78;
+    }
+
+    .movie-choice small {
+    display: block;
+    margin-top: 5px;
+    color: #956f7d;
+    font-weight: normal;
+    }
+
+    .selected-movie {
+    margin-top: 16px;
+    padding: 15px;
+    background: #ffe8f0;
+    border-radius: 15px;
+    color: #a43c64;
+    line-height: 1.6;
+    }
+
+    @keyframes reveal {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    }
+
+  </style>
+</head>
+
+<body>
+  <main class="date-page">
+    <div class="bow">୨୧</div>
+
+    <p class="eyebrow">OFFICIALLY CONFIRMED ♡</p>
+
+    <h1>YAYYYY, BUBU! 💗</h1>
+
+    <p class="message">
+      You have successfully accepted your date
+      invitation. Your girlfriend is very pleased.
+    </p>
+
+    <div class="date-card">
+      <h2>🎟️ Your Date Ticket</h2>
+      <p><strong>Date:</strong> Friday, 23 October 2026</p>
+      <p><strong>Time:</strong> 11:00 PM IST</p>
+      <p><strong>Dress code:</strong> Comfy and cute 🎀</p>
+      <p><strong>Essentials:</strong> Snacks, headphones and me!</p>
+    </div>
+
+    
+    <div class="date-card">
+    <h2>🎬 First mission: Pick our movie</h2>
+    <p>Choose a genre, cutie. Let's find our movie! 💗</p>
+
+    <div class="movie-options">
+        <button class="movie" onclick="showMovies('romantic')">
+        💕 Romantic
+        </button>
+
+        <button class="movie" onclick="showMovies('comedy')">
+        😂 Comedy
+        </button>
+
+        <button class="movie" onclick="showMovies('horror')">
+        👻 Horror
+        </button>
+
+        <button class="movie" onclick="showMovies('surprise')">
+        🎲 Surprise me
+        </button>
+    </div>
+
+    <div id="movieList" class="movie-list" hidden>
+        <h3 id="genreTitle"></h3>
+        <p id="genreDescription"></p>
+        <div id="movieChoices"></div>
+    </div>
+
+    <div id="selectedMovie" class="selected-movie" hidden>
+        <p id="selectedMovieText"></p>
+        <p>Now convince your girlfriend this is the one. 🤭💕</p>
+    </div>
+    </div>
+
+
+    <div class="date-card">
+      <h2>🎨 Second mission: Scribbl!</h2>
+      <p>
+        Prepare for terrible drawings, wild guesses
+        and accusations of cheating.
+      </p>
+
+      <a
+        class="game-link"
+        href="https://skribbl.io/"
+        target="_blank"
+        rel="noopener noreferrer">
+        LET'S PLAY SCRIBBL 🎨
+      </a>
+    </div>
+
+    <div class="date-card">
+      <h2>💋 Third mission: Virtual affection</h2>
+      <p>
+        Virtual hugs, forehead kisses and unlimited
+        I-miss-you's. Distance is rude. 😭
+      </p>
+    </div>
+
+    <div class="date-card">
+        <h2>🤫 Wait, there's one more thing...</h2>
+        <p>I might have a tiny little surprise for you, bubu. 💗</p>
+
+        <a href="letter.html" class="game-link">
+            Find your surprise 💌
+        </a>
+    </div>
+
+    <h2>I love you, honey. ♡</h2>
+
+    <p class="message">
+      Even from miles away, you're still my favourite
+      person to spend my time with. I can't wait for
+      our little date. 💗
+    </p>
+
+    <a class="back-link" href="index.html">
+      ← Back to your invitation
+    </a>
+  </main>
+
+  
+    <script>
+    
+    const movieGenres = {
+    romantic: {
+        title: "💕 Romantic movie night",
+        movies: [
+        "To All the Boys I've Loved Before",
+        "10 Things I Hate About You",
+        "27 Dresses",
+        "Voicemails to Isabella",
+        "Anyone But You"
+        ]
+    },
+
+    comedy: {
+        title: "😂 Comedy night",
+        movies: [
+        "Knight and Day",
+        "The Fall Guy",
+        "Murder Mystery",
+        "What Women Want",
+        "The Proposal"
+        ]
+    },
+
+    horror: {
+        title: "👻 Horror night",
+        movies: [
+        "The Conjuring",
+        "The Nun",
+        "Train to Busan",
+        "Insidious",
+        "Smile"
+        ]
+    },
+
+    surprise: {
+        title: "🎲 Surprise movie picks",
+        movies: [
+        "F1",
+        "Project Hail Mary",
+        "Enola Holmes",
+        "Final Destination",
+        "The Angry Birds Movie"
+        ]
+    }
+    };
+
+
+    function showMovies(genre) {
+        const data = movieGenres[genre];
+
+        if (!data) return;
+
+        const list = document.getElementById("movieList");
+        const choices = document.getElementById("movieChoices");
+
+        document.getElementById("genreTitle").textContent = data.title;
+        document.getElementById("genreDescription").textContent =
+        "Choose your favourite, cutie. 💗";
+
+        choices.replaceChildren();
+        document.getElementById("selectedMovie").hidden = true;
+
+        data.movies.forEach(title => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "movie-choice";
+        button.textContent = "🎬 " + title;
+
+        button.addEventListener("click", () => {
+            choices.querySelectorAll("button").forEach(item => {
+            item.classList.remove("selected");
+            });
+
+            button.classList.add("selected");
+
+            document.getElementById("selectedMovieText").textContent =
+            "Your pick: " + title + " 💕";
+
+            document.getElementById("selectedMovie").hidden = false;
+        });
+
+        choices.appendChild(button);
+        });
+
+        list.hidden = false;
+    }
+
+    document.querySelectorAll(".movie-options .movie").forEach(button => {
+        button.addEventListener("click", () => {
+        const handlers = {
+            "💕 Romantic": "romantic",
+            "😂 Comedy": "comedy",
+            "👻 Horror": "horror",
+            "🎲 Surprise me": "surprise"
+        };
+
+        const label = button.textContent.trim();
+        showMovies(handlers[label]);
+        });
+    });
+    </script>
+    </body>
+</html>

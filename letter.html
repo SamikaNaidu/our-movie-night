@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Little Secret 💌</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .letter-page {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      text-align: center;
+      background: #fff0f5;
+    }
+
+    .letter-card {
+      width: 100%;
+      max-width: 520px;
+      padding: 35px 24px;
+      background: #fffafc;
+      border: 1px solid #f2c5d5;
+      border-radius: 28px;
+      box-shadow: 0 12px 35px #d88aa522;
+    }
+
+    .big-envelope {
+      font-size: 85px;
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      transition: transform 0.3s ease;
+    }
+
+    .big-envelope:hover {
+      transform: scale(1.12) rotate(-5deg);
+    }
+
+    .letter-message {
+      margin-top: 24px;
+      padding: 22px;
+      border-radius: 18px;
+      background: white;
+      color: #75465a;
+      line-height: 1.9;
+      white-space: pre-line;
+      animation: reveal 0.6s ease;
+    }
+
+    .letter-message[hidden] {
+      display: none;
+    }
+
+    .letter-title {
+      color: #c64f78;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 24px;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="letter-page">
+    <section class="letter-card">
+      <p>♡ A LITTLE SOMETHING FOR YOU ♡</p>
+
+      <h1 class="letter-title">For my bubu 💌</h1>
+
+      <p>You've unlocked a tiny piece of my heart.</p>
+      <p>Tap the envelope to open your letter, honey. ♡</p>
+
+      <button
+        class="big-envelope"
+        id="openEnvelope"
+        aria-label="Open your love letter"
+        aria-expanded="false"
+        aria-controls="letterMessage"
+      >
+        💌
+      </button>
+
+      <div class="letter-message" id="letterMessage" hidden>
+        <h2>To my favourite person, 💗</h2>
+
+        Even though we're miles apart, you're still the
+        person I want to share my little moments with.
+
+        I wish I could give you the biggest hug and steal
+        a real kiss right now. Until then, you'll have to
+        accept these virtual ones. 💋
+
+        Thank you for being my favourite person.
+        I love you, bubu. Always. ♡
+
+        <p>Forever your girl, 💗</p>
+      </div>
+
+      <a href="date.html" class="back-link">
+        ← Back to our movie night
+      </a>
+    </section>
+  </main>
+
+  <script>
+    const envelope = document.getElementById("openEnvelope");
+    const message = document.getElementById("letterMessage");
+
+    envelope.addEventListener("click", () => {
+      message.hidden = false;
+      envelope.textContent = "💗";
+      envelope.setAttribute("aria-expanded", "true");
+      envelope.setAttribute("aria-label", "Your letter is open");
+      message.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest"
+      });
+    });
+  </script>
+</body>
+</html>
